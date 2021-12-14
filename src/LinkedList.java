@@ -14,11 +14,11 @@ public class LinkedList {
         }
 
     }
-    public static int length(LinkedList list){
-        if (list.head==null)
+    public int length(){
+        if (head==null)
             return 0;
         int counter = 1;
-        Link last= list.head;
+        Link last= head;
         while (last.next !=null)
         {
             counter++;

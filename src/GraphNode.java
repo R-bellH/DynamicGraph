@@ -1,7 +1,16 @@
 public class GraphNode {
-    LinkedList neighborsList;
-    LinkedList parentList;
+    LinkedList outNeighborsList;
+    LinkedList inNeighborsList;
     int key;
+    public int getOutDegree(){
+        return (outNeighborsList.length());
+    }
+    public int getInDegree(){
+        return (inNeighborsList.length());
+    }
+    public int getKey(){
+        return key;
+    }
 
 
 }
