@@ -31,9 +31,9 @@ public class LinkedList {
         list.head = new_link;
     }
 
-    public static void insert(LinkedList list, GraphNode new_node){
+    public void insert(GraphNode new_node){
         Link new_link = new Link(new_node);
-        insert(list, new_link);
+        this.insert(new_link);
     }
 
     public static void insert_after(Link new_link, Link prev_link){
@@ -49,6 +49,12 @@ public class LinkedList {
         insert_after(new_link, prev_link);
     }
 
-    public static void
+    public void delete(Link link){
+        if(link.previous != null)
+            link.previous.next = link.next;
+        else head = link.next;
+        if(link.next != null)
+            link.next.previous = link.previous;
+    }
 
 }

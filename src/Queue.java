@@ -3,12 +3,11 @@ public class Queue {
     LinkedList.Link tail;
 
     public static void Enqueue(Queue queue, GraphNode node){
-        LinkedList link = new LinkedList();
-        LinkedList.insert(link, node);
+        LinkedList.Link link = new LinkedList.Link(node);
         if (queue.tail !=null)
-            LinkedList.insert_after(queue.list,link,queue.tail);
+            LinkedList.insert_after(link,queue.tail);
         else
-            LinkedList.insert(queue.list,link);
+            queue.list.insert(link);
         queue.tail = link;
 
 
