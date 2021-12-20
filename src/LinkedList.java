@@ -26,25 +26,29 @@ public class LinkedList {
         return counter;
     }
 
-    public static LinkedList insert(LinkedList list, GraphNode graphNode)
-    {
-        Link new_link = new Link(graphNode);
-        new_link.next=null;
-        new_link.previous=null;
-        if (list.head==null)
-        {
-            list.head=new_link;
-        }
-        else
-        {
-            Link last = list.head;
-            while (last.next !=null){
-                last=last.next;
-            }
-            last.next=new_link;
-            new_link.previous=last;
-        }
-        return list;
+    public static void insert(LinkedList list, Link new_link) {
+        new_link.next = list.head;
+        list.head = new_link;
     }
+
+    public static void insert(LinkedList list, GraphNode new_node){
+        Link new_link = new Link(new_node);
+        insert(list, new_link);
+    }
+
+    public static void insert_after(Link new_link, Link prev_link){
+        if (prev_link.next != null)
+            prev_link.next.previous = new_link;
+        new_link.next = prev_link.next;
+        new_link.previous = prev_link;
+        prev_link.next = new_link;
+    }
+
+    public static void insert_after(GraphNode new_node, Link prev_link){
+        Link new_link = new Link(new_node);
+        insert_after(new_link, prev_link);
+    }
+
+    public static void
 
 }
