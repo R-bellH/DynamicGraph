@@ -2,13 +2,20 @@ public class LinkedList {
     Link head = null;
 
     static class Link{
-        GraphNode graphNode;
+        GraphNode graphNode=null;
+        GraphEdge graphEdge=null;
         Link next;
         Link previous;
 
         Link(GraphNode k)
         {
             graphNode =k;
+            next=null;
+            previous=null;
+        }
+        Link(GraphEdge k)
+        {
+            graphEdge =k;
             next=null;
             previous=null;
         }
@@ -26,9 +33,9 @@ public class LinkedList {
         return counter;
     }
 
-    public static void insert(LinkedList list, Link new_link) {
-        new_link.next = list.head;
-        list.head = new_link;
+    public void insert(Link new_link) {
+        new_link.next = head;
+        head = new_link;
     }
 
     public void insert(GraphNode new_node){

@@ -9,14 +9,13 @@ public class Queue {
         else
             queue.list.insert(link);
         queue.tail = link;
-
-
     }
+
     public static GraphNode Dequeue(Queue queue){
         if (queue.list.head == null)
-            return "error";
+             return null;
         GraphNode node= queue.list.head.graphNode;
-        LinkedList_Delete(queue.list,queue.list.head);
+        queue.list.delete(queue.list.head);
         if (queue.list.head == null)
             queue.tail =null;
         return node;
