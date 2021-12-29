@@ -3,6 +3,10 @@ public class GraphNode {
     LinkedList inNeighborsList;
     int key;
     LinkedList.Link place;
+    String color;
+    GraphNode π;
+    int d;
+    int f;
 
     public GraphNode(int k){
         outNeighborsList=new LinkedList();

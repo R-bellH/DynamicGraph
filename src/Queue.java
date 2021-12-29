@@ -11,13 +11,13 @@ public class Queue {
         queue.tail = link;
     }
 
-    public static GraphNode Dequeue(Queue queue){
-        if (queue.list.head == null)
+    public GraphNode Dequeue(){
+        if (this.list.head == null)
              return null;
-        GraphNode node= queue.list.head.graphNode;
-        queue.list.delete(queue.list.head);
-        if (queue.list.head == null)
-            queue.tail =null;
+        GraphNode node= this.list.head.graphNode;
+        this.list.delete(this.list.head);
+        if (this.list.head == null)
+            this.tail =null;
         return node;
 
     }
