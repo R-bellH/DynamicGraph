@@ -5,6 +5,7 @@ public class GraphNode {
     LinkedList.Link place;
     String color;
     GraphNode π;
+    GraphNode rootedNode;
     int d;
     int f;
 
@@ -13,6 +14,8 @@ public class GraphNode {
         inNeighborsList = new LinkedList();
         key=k;
     }
+    public
+
     public int getOutDegree(){
         return (outNeighborsList.length());
     }
@@ -22,6 +25,7 @@ public class GraphNode {
     public int getKey(){
         return key;
     }
+
 
 
 }

@@ -1,6 +1,6 @@
 public class RootedTreeNode {
     GraphNode node;
-    RootedTreeNode π;
+    GraphNode π;
     int d;
     int f;
     LinkedList GraphNodes;
