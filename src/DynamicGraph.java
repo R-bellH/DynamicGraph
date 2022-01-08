@@ -6,7 +6,6 @@ public class DynamicGraph {
         Edges=new LinkedList();
         GraphNodes = new LinkedList();
     }
-
     public GraphNode insertNode(int nodeKey){
         GraphNode new_node = new GraphNode(nodeKey);
         LinkedList.Link new_link = new LinkedList.Link(new_node);
