@@ -2,7 +2,10 @@ public class Queue {
     LinkedList list;
     LinkedList.Link tail;
 
-    public static void Enqueue(Queue queue, GraphNode node){
+    public Queue(){
+        list=new LinkedList();
+    }
+    public void Enqueue(GraphNode node){
         LinkedList.Link link = new LinkedList.Link(node);
         if (queue.tail !=null)
             LinkedList.insert_after(link,queue.tail);

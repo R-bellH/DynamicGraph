@@ -1,7 +1,8 @@
 public class GraphNode {
     LinkedList outNeighborsList;
     LinkedList inNeighborsList;
-    int key;
+    LinkedList rootedOutList;
+    private final int key;
     LinkedList.Link place;
     String color;
     GraphNode π;
@@ -9,7 +10,7 @@ public class GraphNode {
     int d;
     int f;
     GraphNode leftChild;
-    GraphNode rightSibiling;
+    GraphNode rightSibling;
 
     public GraphNode(int k){
         outNeighborsList=new LinkedList();

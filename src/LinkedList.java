@@ -26,10 +26,11 @@ public class LinkedList {
             return 0;
         int counter = 1;
         Link last= head;
-        while (last.next !=null)
+        do
         {
             counter++;
-        }
+            last=last.next;
+        }while(last !=null);
         return counter;
     }
 
@@ -46,13 +47,16 @@ public class LinkedList {
     public void insert_after(Link new_link, Link prev_link){
         if(prev_link==null)
             this.insert(new_link);
-        if (prev_link.next != null)
-            prev_link.next.previous = new_link;
-        new_link.next = prev_link.next;
-        new_link.previous = prev_link;
-        prev_link.next = new_link;
-        if(new_link.next==null)
-            this.tail=new_link;
+        else{
+            if (prev_link.next != null)
+                prev_link.next.previous = new_link;
+            new_link.next = prev_link.next;
+            new_link.previous = prev_link;
+            prev_link.next = new_link;
+            if(new_link.next==null)
+                this.tail=new_link;
+        }
+
     }
 
     public void insert_after(GraphNode new_node, Link prev_link){

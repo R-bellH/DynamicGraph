@@ -6,7 +6,7 @@ public class GraphEdge {
     LinkedList.Link toLink;
 
     public GraphEdge(GraphNode f, GraphNode t){
-        from=f;
-        to=t;
+        this.from=f;
+        this.to=t;
     }
 }

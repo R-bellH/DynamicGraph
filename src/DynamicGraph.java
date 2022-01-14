@@ -1,10 +1,11 @@
 public class DynamicGraph {
     LinkedList Edges;
     LinkedList GraphNodes;
-
+    LinkedList Psi;
     public DynamicGraph(){
         Edges=new LinkedList();
         GraphNodes = new LinkedList();
+        Psi=new LinkedList();
     }
     public GraphNode insertNode(int nodeKey){
         GraphNode new_node = new GraphNode(nodeKey);
