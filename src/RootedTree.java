@@ -11,6 +11,12 @@ public class RootedTree extends DynamicGraph {
         out.write(root.key);
         //use bfs
     }
+    public GraphNode insert(GraphNode node){
+        GraphNode rootedNode = this.insertNode(node.key);
+        node.linkedNode = rootedNode;
+        rootedNode.linkedNode = node;
+        return rootedNode;
+    }
 
 
 }

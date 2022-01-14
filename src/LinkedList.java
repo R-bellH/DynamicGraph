@@ -43,15 +43,19 @@ public class LinkedList {
         this.insert(new_link);
     }
 
-    public static void insert_after(Link new_link, Link prev_link){
+    public void insert_after(Link new_link, Link prev_link){
+        if(prev_link==null)
+            this.insert(new_link);
         if (prev_link.next != null)
             prev_link.next.previous = new_link;
         new_link.next = prev_link.next;
         new_link.previous = prev_link;
         prev_link.next = new_link;
+        if(new_link.next==null)
+            this.tail=new_link;
     }
 
-    public static void insert_after(GraphNode new_node, Link prev_link){
+    public void insert_after(GraphNode new_node, Link prev_link){
         Link new_link = new Link(new_node);
         insert_after(new_link, prev_link);
     }

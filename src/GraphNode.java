@@ -5,9 +5,11 @@ public class GraphNode {
     LinkedList.Link place;
     String color;
     GraphNode π;
-    GraphNode rootedNode;
+    GraphNode linkedNode;
     int d;
     int f;
+    GraphNode leftChild;
+    GraphNode rightSibiling;
 
     public GraphNode(int k){
         outNeighborsList=new LinkedList();
