@@ -11,7 +11,7 @@ public class DynamicGraph {
         GraphNode new_node = new GraphNode(nodeKey);
         LinkedList.Link new_link = new LinkedList.Link(new_node);
         new_node.place = new_link;
-        GraphNodes.insert(new_link);
+        this.GraphNodes.insert(new_link);
         return new_node;
     }
     public void deleteNode(GraphNode node){

@@ -10,8 +10,11 @@ public class RootedTree extends DynamicGraph {
     public void printByLayer(DataOutputStream out) throws IOException {
         clean_nei_list(this.root);
         add_nei(this.root);
-        bfs(this.root);
-        GraphNode node = this.bfs_res.Dequeue();
+        LinkedList new_nodes = new LinkedList();
+        add_nodes(this.root,new_nodes);
+        this.GraphNodes=new_nodes;
+        RootedTree tree = bfs(this.root);
+        GraphNode node = tree.bfs_res.Dequeue();
         int oldie=node.d;
         while(node!=null){
             if(oldie!=node.d)
@@ -20,7 +23,7 @@ public class RootedTree extends DynamicGraph {
                 out.writeBytes("\n");
             }
             out.writeBytes(String.valueOf(node.getKey()));
-            node=this.bfs_res.Dequeue();
+            node=tree.bfs_res.Dequeue();
             if(node!=null && oldie==node.d)
                 out.writeBytes(",");
         }
@@ -33,7 +36,7 @@ public class RootedTree extends DynamicGraph {
         out.writeBytes(String.valueOf(node.getKey()));
         while (child!=null){
             out.writeBytes(",");
-            clean_nei_list(child);
+            preorder(out, child);
             child = child.rightSibling;
         }
     }
@@ -43,6 +46,33 @@ public class RootedTree extends DynamicGraph {
         rootedNode.linkedNode = node;
         return rootedNode;
     }
-
+    public void add_nei(GraphNode node){
+        GraphNode child = node.leftChild;
+        while (child!=null){
+            node.outNeighborsList.insert(child);
+            child.inNeighborsList.insert(node);
+            add_nei(child);
+            child = child.rightSibling;
+        }
+    }
+    public void clean_nei_list(GraphNode node){
+        GraphNode child = node.leftChild;
+        node.inNeighborsList.head = null;
+        node.inNeighborsList.tail = null;
+        node.outNeighborsList.head = null;
+        node.outNeighborsList.tail = null;
+        while (child!=null){
+            clean_nei_list(child);
+            child = child.rightSibling;
+        }
+    }
+    public void add_nodes(GraphNode node, LinkedList graphnodes){
+        GraphNode child = node.leftChild;
+        graphnodes.insert(node);
+        while (child!=null){
+            add_nodes(child, graphnodes);
+            child = child.rightSibling;
+        }
+    }
 
 }

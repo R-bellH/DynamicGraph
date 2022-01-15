@@ -24,7 +24,7 @@ public class LinkedList {
     public int length(){
         if (head==null)
             return 0;
-        int counter = 1;
+        int counter = 0;
         Link last= head;
         do
         {

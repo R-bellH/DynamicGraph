@@ -1,6 +1,6 @@
 public class Queue {
     LinkedList list;
-    LinkedList.Link tail;
+    //LinkedList.Link tail;
 
     public Queue(){
         list=new LinkedList();
@@ -20,7 +20,7 @@ public class Queue {
         GraphNode node= this.list.head.graphNode;
         this.list.delete(this.list.head);
         if (this.list.head == null)
-            this.tail =null;
+            this.list.tail =null;
         return node;
 
     }
