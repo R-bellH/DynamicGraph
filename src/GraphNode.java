@@ -17,8 +17,6 @@ public class GraphNode {
         inNeighborsList = new LinkedList();
         key=k;
     }
-    public
-
     public int getOutDegree(){
         return (outNeighborsList.length());
     }
