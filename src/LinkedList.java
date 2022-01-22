@@ -65,11 +65,15 @@ public class LinkedList {
     }
 
     public void delete(Link link){
+        if(link==null)
+            return;
         if(link.previous != null)
             link.previous.next = link.next;
         else head = link.next;
         if(link.next != null)
             link.next.previous = link.previous;
+        else
+            tail=link.previous;
     }
 
 }

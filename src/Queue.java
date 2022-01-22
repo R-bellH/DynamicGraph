@@ -1,6 +1,5 @@
 public class Queue {
     LinkedList list;
-    //LinkedList.Link tail;
 
     public Queue(){
         list=new LinkedList();

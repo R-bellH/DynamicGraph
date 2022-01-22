@@ -2,7 +2,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 public class RootedTree extends DynamicGraph {
     GraphNode root;
-    Queue bfs_res;//added
 
     public RootedTree(){
         root=null;
@@ -23,7 +22,7 @@ public class RootedTree extends DynamicGraph {
                 out.writeBytes("\n");
             }
             out.writeBytes(String.valueOf(node.getKey()));
-            node=tree.bfs_res.Dequeue();
+            node=tree.Dequeue();
             if(node!=null && oldie==node.d)
                 out.writeBytes(",");
         }
@@ -49,8 +48,8 @@ public class RootedTree extends DynamicGraph {
     public void add_nei(GraphNode node){
         GraphNode child = node.leftChild;
         while (child!=null){
-            node.outNeighborsList.insert(child);
-            child.inNeighborsList.insert(node);
+            node.outNeighborsList.insert_after(child,node.outNeighborsList.tail);
+            child.inNeighborsList.insert_after(node,node.inNeighborsList.tail);
             add_nei(child);
             child = child.rightSibling;
         }
@@ -74,5 +73,4 @@ public class RootedTree extends DynamicGraph {
             child = child.rightSibling;
         }
     }
-
 }
